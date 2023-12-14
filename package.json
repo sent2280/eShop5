@@ -11,12 +11,12 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "data:import": "node backend/seeder",
     "data:destroy": "node backend/seeder -d",
-    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
+    "build": "npm show @babel/plugin-proposal-private-property-in-object versions && npm install && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^1.0.7",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.10",
     "concurrently": "^8.2.1",
     "dotenv": "^16.0.3",
     "nodemon": "^3.0.1"
