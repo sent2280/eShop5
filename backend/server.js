@@ -12,7 +12,7 @@ import path from 'path';
 import dotenv from "dotenv";
 dotenv.config();
 
-const port = process.env.PORT;
+const port = process.env.PORT || 9000;
 const PAYPAL_CLIENT_ID = process.env.PAYPAL_CLIENT_ID;
 
 connectDB();
@@ -73,5 +73,8 @@ app.use(cors(corsOptions));
 app.use(errorHandler);
 
 
-app.listen(port, () => 
-console.log(`Server running on port ${port}`));
+const server = app.listen(port, () => {
+  const host = server.address().address;
+  const port = server.address().port;
+  console.log(`Express server listening at http://${host}:${port}`);
+});
